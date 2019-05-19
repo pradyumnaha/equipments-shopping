@@ -1,0 +1,84 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#" routerLinkActive="active" [routerLink]="['/stocks']">Stocks</a>
+      <a class="nav-item nav-link" href="#" (click)="onBuyLinkClick()" data-toggle="modal" data-target="#exampleModalCenter">Buy</a>
+    </div>
+    <ul class="navbar-nav ml-auto">
+      <span class="navbar-text">
+        {{this.goldBalance}} gold
+      </span>
+    </ul>
+  </div>
+</nav>
+<!-- Modal -->
+<div class="modal fade mainModal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title ml-3" id="exampleModalCenterTitle">Order</h5>
+        <button type="button" class="close" (click)="onCloseClick()" data-dismiss="modal" aria-label="Close">
+          <img class="modal-close" alt="close" src="../../assets/icon/cross.png">
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row list-items" *ngFor="let item of listItems; let i = index">
+            <div class="col-md-7 col-sm-5 col-5">
+              <img src= "{{ item.imgUrl }}" alt="Item Img" class="item-image">
+              <span> {{ getDisplayName(item) }}</span> 
+              <!-- <small class="stock">stock: {{item.quantity}}</small>             -->
+            </div>
+            <div class="col-md-5 col-sm-7 col-7 m-auto justify-content-around">
+              <button id="minus-image" class="minus" (click)="onMinusClick(i, item)"><img src="../../assets/icon/minus.png" alt="minus Img"></button>
+              <input type="text" #refEl (keypress)="numberOnly($event)" id="buyNumInput" class="buyNum" (input)="onInputType($event.target.value, i, item)" [(ngModel)]="buyNumInput[i]">
+              <button id="plus-image" class="plus" (click)="onPlusClick(i, item)" data-toggle="modal" data-target="#exampleModalLong"><img src="../../assets/icon/plus.png" alt="plus Img"></button>
+              <span class="price text-right"> {{ item.price }} gold</span> 
+            </div>
+          </div>
+          <div class="row total-section">
+            <div class="col-7">
+              <span><b>Total</b></span>
+            </div>
+            <div class="col-5 text-right gold-sum">
+              <span><b>{{this.sum}} gold</b></span>
+            </div>
+          </div> 
+          <div class="row mt-2" *ngIf= "goldNotAvilable">
+            <div class="col-sm-12 text-right">
+              <small class="goldBalanceErrMsg">Gold number exceeds available gold balance</small>
+            </div>
+          </div>       
+        </div>
+      </div>
+      <div class="modal-footer footer-btn-group mr-3">
+        <button type="button" class="btn btn-primary" [disabled]="goldNotAvilable" (click)="onBuyClick()" data-dismiss="modal">Buy</button>
+        <button type="button" class="btn btn-secondary" (click)="onCancelClick()" data-dismiss="modal">Cancel</button>        
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" *ngIf="itemNotAvailable">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Info</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Item not available
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

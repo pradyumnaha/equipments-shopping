@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-danger mt-2" role="alert" *ngIf="backendCallFailedInHome">
+          Backend call failed. User could not be updated.
+      </div>
+      <div class="alert alert-danger mt-2" role="alert" *ngIf="backendCallFailedInHeader">
+          Backend call failed. Gold balance cannot be updated.
+      </div>
+      <h2>Hello, {{this.userName}} </h2>
+      <p>
+          Have a nice day
+      </p>
+      
+
+      <hr />
+      <footer>
+        <p>&copy; 2019 - New Day at Work</p>
+      </footer>
+    </div>
+  </div>
+</div>

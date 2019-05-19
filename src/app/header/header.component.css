@@ -1,0 +1,102 @@
+* {
+    font-size: 18px;
+}
+.buyNum { 
+    height: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 40px; 
+}
+
+.goldBalanceErrMsg{
+    color: red;
+    display: inline-block;
+}
+
+.buyNum { 
+    text-align: center; 
+}
+
+.mainModal .modal-header, .mainModal .modal-footer {
+    border: none;
+}
+
+.modal-title {
+    font-size: 24px;
+    font-weight: normal;
+}
+
+button.close img{
+    padding-right: 20px;
+}
+
+.minus, .plus {
+    background-color: #e7e7e7;
+    border: none;
+    width: 30px;
+    height: 30px; 
+}
+
+.minus img, .plus img{
+    margin-top: -4px;
+}
+
+.list-items {
+    margin-bottom: 20px;
+}
+
+.item-image {
+    margin-right: 10px;
+}
+
+.price {
+    display: inline-block;
+    width: 105px;
+}
+
+.modal-content, .btn {
+    border-radius: 0;
+}
+
+.footer-btn-group .btn {
+    height: 40px;
+    width: 100px;
+}
+
+.gold-sum span {
+    margin-right: 15px;
+}
+
+.btn-primary {
+    background-color: #3b77b3;
+    margin-right: 10px;
+}
+
+.total-section {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+@media (min-width:767px) {
+    .modal-dialog {
+        max-width: 700px;
+    }
+
+    .modal-content {
+        padding: 15px 0 15px 15px;
+    }
+}
+
+@media (max-width: 480px) {   
+    .item-image {
+        display: none;
+    }
+
+    .price {
+        width: 90px;
+    }
+}
+
+/* .stock{
+    display: block;
+} */
