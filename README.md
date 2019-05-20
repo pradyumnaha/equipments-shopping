@@ -25,3 +25,34 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Application structure
+
+| Directory |            | Description  |
+| -------|-------------| -----|
+| `app` |  |  main application root directory|
+| |`components`|generic re-usable Angular components|
+| |`routing`|Angular routing|
+| |`services`|Angular services (Http/Api requests)|
+|`assets`||various assets such as images, fonts, etc.|
+|`content`||contains json files with content strings| 
+|`e2e`||end-to-end tests, currently not used|
+|`environments`||environment variables|
+|`styles`||Sass/CSS styles|
+|`index.html`||application template|
+|`main.ts`||Angular application bootstrap|
+|`polyfills.ts`||Angular polyfills|
+|`styles.scss`||Root Sass file that bundles all other component styles|
+|`test.ts`||(Karma) Test bundle initialization|
+|`tsconfig.app.json`||TypeScript config|
+|`tsconfig.spec.json`||TypeScript config for Karma tests|
+
+## Key Angular Concepts used
+
+Componenets
+Directives
+Routing
+Dependency Injection
+Data binding
+Services
+Behavior subject - rxjs
