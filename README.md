@@ -49,10 +49,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Key Angular Concepts used
 
-Componenets
-Directives
-Routing
-Dependency Injection
-Data binding
-Services
-Behavior subject - rxjs
+Componenets, Directives, Routing, Dependency Injection, Data binding, Services and Behavior subject - rxjs.
